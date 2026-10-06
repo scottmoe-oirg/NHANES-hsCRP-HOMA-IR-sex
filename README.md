@@ -249,4 +249,5 @@ public repository release is archived.
 
 ## License
 
-License information will be added before the public release.
+The software and computational materials in this repository are released
+under the MIT License. See `LICENSE` for details.
