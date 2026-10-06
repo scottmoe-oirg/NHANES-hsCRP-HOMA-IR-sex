@@ -1,0 +1,37 @@
+# macOS
+.DS_Store
+
+# Python environments and caches
+.venv/
+__pycache__/
+*.py[cod]
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+texput.log
+
+# Raw NHANES data
+data/raw/*.xpt
+data/raw_supplemental/*.xpt
+
+# Participant-level derived data
+output/hscrp_high_cbc_descriptive/high_hscrp_individual_values.csv
+output/sex_scale_diagnostics/model_*_diagnostic_data.csv
+outputs/qc/analytic_dataset_key_variables.csv
+
+# Local manuscript development archive
+manuscript/archive_local/
+
+# Local research-development archives
+notes/archive_local/
+
+# Local script-development archive
+scripts/archive_local/

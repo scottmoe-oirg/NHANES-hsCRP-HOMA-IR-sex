@@ -1,0 +1,124 @@
+
+HIGH-hsCRP CBC QC
+==========================================================================================
+
+SOURCE FILES
+------------------------------------------------------------------------------------------
+CBC_I.xpt:   9,165 rows, 21 variables
+P_CBC.xpt:   13,772 rows, 22 variables
+
+2015-2016 CBC VARIABLES
+------------------------------------------------------------------------------------------
+SEQN
+LBXWBCSI
+LBXLYPCT
+LBXMOPCT
+LBXNEPCT
+LBXEOPCT
+LBXBAPCT
+LBDLYMNO
+LBDMONO
+LBDNENO
+LBDEONO
+LBDBANO
+LBXRBCSI
+LBXHGB
+LBXHCT
+LBXMCVSI
+LBXMCHSI
+LBXMC
+LBXRDW
+LBXPLTSI
+LBXMPSI
+
+2017-MARCH 2020 CBC VARIABLES
+------------------------------------------------------------------------------------------
+SEQN
+LBXWBCSI
+LBXLYPCT
+LBXMOPCT
+LBXNEPCT
+LBXEOPCT
+LBXBAPCT
+LBDLYMNO
+LBDMONO
+LBDNENO
+LBDEONO
+LBDBANO
+LBXRBCSI
+LBXHGB
+LBXHCT
+LBXMCVSI
+LBXMC
+LBXMCHSI
+LBXRDW
+LBXPLTSI
+LBXMPSI
+LBXNRBC
+
+COMMON CBC VARIABLES
+------------------------------------------------------------------------------------------
+LBDBANO
+LBDEONO
+LBDLYMNO
+LBDMONO
+LBDNENO
+LBXBAPCT
+LBXEOPCT
+LBXHCT
+LBXHGB
+LBXLYPCT
+LBXMC
+LBXMCHSI
+LBXMCVSI
+LBXMOPCT
+LBXMPSI
+LBXNEPCT
+LBXPLTSI
+LBXRBCSI
+LBXRDW
+LBXWBCSI
+SEQN
+
+LOCKED COHORT
+------------------------------------------------------------------------------------------
+Total:                 3,079
+hsCRP <=10 mg/L:       2,895
+hsCRP >10 mg/L:        184
+
+SEX DISTRIBUTION: hsCRP >10 mg/L
+------------------------------------------------------------------------------------------
+Female (is_male=0): 128
+Male   (is_male=1): 56
+
+CBC COVERAGE AMONG THE 184
+------------------------------------------------------------------------------------------
+LBDBANO          184/184 (100.00%)
+LBDEONO          184/184 (100.00%)
+LBDLYMNO         184/184 (100.00%)
+LBDMONO          184/184 (100.00%)
+LBDNENO          184/184 (100.00%)
+LBXBAPCT         184/184 (100.00%)
+LBXEOPCT         184/184 (100.00%)
+LBXHCT           184/184 (100.00%)
+LBXHGB           184/184 (100.00%)
+LBXLYPCT         184/184 (100.00%)
+LBXMC            184/184 (100.00%)
+LBXMCHSI         184/184 (100.00%)
+LBXMCVSI         184/184 (100.00%)
+LBXMOPCT         184/184 (100.00%)
+LBXMPSI          184/184 (100.00%)
+LBXNEPCT         184/184 (100.00%)
+LBXPLTSI         184/184 (100.00%)
+LBXRBCSI         184/184 (100.00%)
+LBXRDW           184/184 (100.00%)
+LBXWBCSI         184/184 (100.00%)
+
+CANDIDATE WHITE-CELL / DIFFERENTIAL VARIABLES
+------------------------------------------------------------------------------------------
+LBDLYMNO
+LBDMONO
+LBXWBCSI
+
+NO INFERENTIAL MODEL WAS FIT.
+This script inventories CBC availability, linkage, sex composition, and coverage among the frozen hsCRP >10 mg/L group only.

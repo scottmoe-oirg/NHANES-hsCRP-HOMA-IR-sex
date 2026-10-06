@@ -1,0 +1,1 @@
+log_hs_CRP ~ HOMA_IR * is_male + C(period) * (LBXGH + waist + AGE + Non_HDL)

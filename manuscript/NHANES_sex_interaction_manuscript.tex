@@ -1,0 +1,971 @@
+
+\documentclass[11pt]{article}
+
+% ------------------------------------------------------------
+% Packages
+% ------------------------------------------------------------
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{setspace}
+\usepackage{natbib}
+\usepackage{threeparttable}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    citecolor=blue,
+    urlcolor=blue
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.72em}
+\onehalfspacing
+
+
+% ------------------------------------------------------------
+% Title information
+% ------------------------------------------------------------
+\title{\textbf{Sex Differences in the Association Between Insulin Resistance and Systemic Inflammation}\\
+\textbf{Below the HbA1c Prediabetes Threshold: NHANES 2015--March 2020}}
+
+% ------------------------------------------------------------
+% Document
+% ------------------------------------------------------------
+\begin{document}
+
+\author{
+Scott Moerschbacher$^{1}$,
+Janice Baker$^{1,2}$
+}
+
+\date{}
+\maketitle
+
+\begin{center}
+$^{1}$Open Inquiry Research Group, USA\\
+$^{2}$Department of Sociology, University of Nevada, Reno,
+Reno, Nevada, USA
+\end{center}
+
+\vspace{0.75em}
+
+\begin{center}
+\textbf{Corresponding author:}\\
+Scott Moerschbacher\\
+Open Inquiry Research Group\\
+\href{mailto:scott@openinquiryresearch.org}
+{scott@openinquiryresearch.org}
+\end{center}
+
+\vspace{0.5em}
+
+\noindent\textbf{Keywords:}
+insulin resistance; HOMA-IR; systemic inflammation; hsCRP;
+sex differences; NHANES; glycemic threshold
+
+\vspace{1em}
+
+\begin{abstract}
+
+\textbf{Background:}
+Insulin resistance and systemic inflammation are closely related features of
+metabolic dysfunction, but whether their association differs by sex before
+conventional glycemic thresholds for prediabetes are reached is not well
+established. We examined whether sex modifies the association between
+homeostatic model assessment of insulin resistance (HOMA-IR) and
+high-sensitivity C-reactive protein (hsCRP) among U.S. adults without
+diagnosed diabetes and with HbA1c $<5.7\%$.
+
+\textbf{Methods:}
+We conducted a cross-sectional analysis of the 2015--March 2020
+pre-pandemic National Health and Nutrition Examination Survey (NHANES).
+The primary analytic sample included 3,079 adults aged $\geq20$ years
+meeting the glycemic and fasting-subsample eligibility criteria.
+Survey-weighted linear regression modeled log-transformed hsCRP as a
+function of HOMA-IR, sex, their interaction, and period-specific adjustment
+for HbA1c, waist circumference, age, and non-HDL cholesterol. The primary
+inferential test was the survey-adjusted HOMA-IR-by-sex interaction.
+Sensitivity analyses evaluated exposure scale and upper-tail influence,
+alternative adiposity specifications, selected clinical and behavioral
+factors, pregnancy, and restriction to hsCRP $\leq10$ mg/L.
+
+\textbf{Results:}
+The adjusted HOMA-IR--hsCRP association differed by sex in the primary
+analysis ($F_{1,40}=9.05$, $p=0.0045$). The estimated HOMA-IR slope was
+0.0629 (95\% CI, 0.0265 to 0.0992) among women and 0.0082
+(95\% CI, $-0.0156$ to 0.0319) among men, with a male-minus-female slope
+difference of $-0.0547$ (95\% CI, $-0.0914$ to $-0.0180$).
+The direction of the sex contrast was maintained across alternative HOMA-IR
+scales and upper-tail restrictions, alternative adiposity specifications,
+and targeted smoking, statin, renal, hepatic, alcohol, and pregnancy
+sensitivities. However, restriction to hsCRP $\leq10$ mg/L attenuated the
+male-minus-female slope difference by approximately 51\%, to $-0.0269$
+(95\% CI, $-0.0572$ to 0.0033; $F_{1,40}=3.24$, $p=0.080$).
+
+\textbf{Conclusions:}
+Among U.S. adults without diagnosed diabetes and with HbA1c below the
+conventional threshold for prediabetes, the adjusted association between
+HOMA-IR and hsCRP was more positive among females than among males. This sex contrast
+was stable across multiple metabolic and clinical sensitivity analyses but
+was substantially attenuated after restriction of the upper hsCRP range.
+These findings suggest that sex-related heterogeneity in
+metabolic--inflammatory coupling may be detectable below conventional
+glycemic thresholds, while also indicating that the magnitude of this
+heterogeneity depends importantly on the inflammatory range represented in
+the analytic population.
+
+\end{abstract}
+
+% ============================================================
+
+\section{Introduction}
+
+Insulin resistance and systemic inflammation are closely related features
+of metabolic dysfunction. Higher concentrations of C-reactive protein (CRP)
+have been associated with greater insulin resistance in population-based
+studies of adults without diabetes, including nationally representative
+U.S. data \citep{Meng2007CRPInsulinResistance}. Longitudinal evidence from
+the Coronary Artery Risk Development in Young Adults (CARDIA) study has
+further demonstrated associations between CRP and both concurrent and
+subsequent HOMA-IR, although much of the association was attenuated after
+accounting for adiposity \citep{Park2009InflammationHOMA}. Similar
+associations between CRP and HOMA-IR have been reported in other
+nondiabetic populations and have persisted after adjustment for abdominal
+adiposity \citep{Chou2010CRPInsulinResistance}. These observations suggest
+that inflammatory and insulin-resistance phenotypes may be coupled before
+the development of overt diabetes.
+
+Sex may be an important source of heterogeneity in this relationship. Women
+and men differ in insulin sensitivity and in the distribution and metabolic
+function of adipose tissue, with sex hormones and inflammatory pathways
+among the mechanisms proposed to contribute to these differences
+\citep{Gado2024SexIR}. Immune and inflammatory responses also differ by sex
+across both innate and adaptive pathways
+\citep{KleinFlanagan2016SexImmune}. Consistent with these physiological
+differences, women have generally been reported to have higher CRP
+concentrations than men in population-based studies
+\citep{Lakoski2006GenderCRP}, and the association between total fat mass and
+CRP may itself differ by sex \citep{Khera2009SexCRPBodyFat}. Thus, sex
+differences in average concentrations of metabolic or inflammatory markers
+may not fully characterize sex-related heterogeneity in the relationship
+between these systems.
+
+Previous studies have examined the relationship between HOMA-IR and CRP in
+women and men, but evidence regarding sex-specific coupling is limited and
+not uniform. Sex-stratified analyses in nondiabetic Taiwanese adults found
+positive adjusted HOMA-IR--CRP associations in both women and men
+\citep{Chou2010CRPInsulinResistance}, whereas CARDIA reported no significant
+interaction between CRP and sex in the prediction of HOMA-IR
+\citep{Park2009InflammationHOMA}. More recently, analysis of a representative
+Canadian adult population explicitly examined potential differences by sex
+and reported differing patterns of association between CRP and HOMA-IR in
+women and men \citep{Shahid2023CRPHOMA}. Less is known about whether the
+adjusted association between insulin resistance and systemic inflammation
+differs by sex among adults who remain below conventional glycemic thresholds
+for prediabetes. This distinction may be informative because clinical
+glycemic categories do not necessarily imply physiological homogeneity in
+insulin resistance or inflammatory state.
+
+We therefore examined whether sex modifies the association between HOMA-IR
+and high-sensitivity C-reactive protein (hsCRP) among U.S. adults aged 20
+years or older without diagnosed diabetes and with HbA1c $<5.7\%$, using
+data from the 2015--March 2020 pre-pandemic National Health and Nutrition
+Examination Survey (NHANES). The primary analysis formally tested the
+HOMA-IR-by-sex interaction while accounting for the complex survey design
+and relevant metabolic covariates. We further evaluated the stability of
+the estimated sex difference across alternative HOMA-IR scales and exposure
+distributions, multiple representations of adiposity, selected clinical and
+behavioral factors, pregnancy, and restriction of the upper hsCRP range.
+
+% ============================================================
+
+\section{Methods}
+
+\subsection{Study Design and Data Source}
+
+We conducted a cross-sectional analysis of publicly available data from the
+National Health and Nutrition Examination Survey (NHANES), using the
+2015--2016 cycle and the 2017--March 2020 pre-pandemic data release.
+NHANES is a nationally representative survey of the noninstitutionalized
+U.S. population that combines interviews, physical examinations, and
+laboratory measurements using a complex, multistage probability sampling
+design \citep{NHANES2017_2020Guidelines}.
+
+The 2015--2016 and 2017--March 2020 datasets were harmonized at the
+participant level using the NHANES participant identifier (\texttt{SEQN}).
+Variables required for the primary analysis were obtained from the
+demographic, examination, diabetes questionnaire, glycohemoglobin,
+fasting glucose, fasting insulin, high-sensitivity C-reactive protein,
+and lipid files. Additional questionnaire and laboratory files were used for sensitivity analyses. 
+Because HOMA-IR requires both fasting glucose and fasting insulin, analyses were conducted within the
+NHANES fasting laboratory subsample and used the corresponding
+fasting-subsample survey weights.
+
+\subsection{Analytic Population}
+
+The analytic population was restricted to adults aged 20 years or older
+who had no self-reported diagnosis of diabetes and had HbA1c $<5.7\%$,
+the lower boundary of the conventional HbA1c-defined prediabetes range
+\citep{ADA2026Diagnosis}. Participants were additionally required to belong
+to the qualifying NHANES fasting laboratory subsample, as indicated by a
+nonzero fasting-subsample survey weight, and to have valid fasting glucose
+and fasting insulin measurements, positive HOMA-IR and hsCRP values, and
+complete data for variables included in the primary model. No imputation
+of missing data was performed.
+
+Fasting-subsample eligibility was independently verified using
+participant-reported fasting duration from the NHANES fasting questionnaire,
+calculated as \texttt{PHAFSTHR} + \texttt{PHAFSTMN}/60
+\citep{NHANESFastingQuestionnaire2015,NHANESFastingQuestionnaire2017_2020}. All participants with a
+qualifying fasting-subsample weight in the final analytic population reported
+fasting durations within the NHANES qualifying range of 8 to $<24$ hours.
+
+Of 3,182 participants meeting the remaining eligibility and measurement
+requirements, 103 (3.2\%) were excluded because of incomplete primary-model
+covariate data, yielding a final primary analytic sample of 3,079 participants.
+The final sample represented approximately 144.3 million U.S. adults after
+application of the combined survey weights.
+
+No a priori sample-size calculation was performed; the analytic sample
+comprised all participants from the specified NHANES survey periods who met
+the study eligibility criteria and had the data required for the primary
+analysis.
+
+The HbA1c restriction was used to examine metabolic heterogeneity specifically
+among individuals remaining below the conventional laboratory threshold for
+prediabetes. This restriction defines the population under study and should
+not be interpreted as establishing that all included participants were
+otherwise metabolically healthy.
+
+\subsection{Exposure: HOMA-IR}
+
+The primary exposure was the Homeostatic Model Assessment of Insulin
+Resistance (HOMA-IR), a surrogate measure of insulin resistance derived from
+fasting insulin and fasting glucose concentrations
+\citep{Matthews1985HOMA,Wallace2004HOMA}. HOMA-IR was calculated as
+
+\[
+\mathrm{HOMA\!-\!IR}
+=
+\frac{
+\mathrm{fasting\ insulin}\;(\mu\mathrm{U/mL})
+\times
+\mathrm{fasting\ glucose}\;(\mathrm{mg/dL})
+}{405}.
+\]
+
+HOMA-IR was modeled continuously and retained on its original scale in the
+primary analysis. Raw HOMA-IR was retained to preserve direct interpretation
+per one-unit difference and continuity with the preceding analysis of this
+NHANES cohort. Because HOMA-IR was right-skewed, natural-log-transformed
+HOMA-IR and progressively trimmed upper-tail samples were evaluated in
+sensitivity analyses.
+
+\subsection{Outcome: hsCRP}
+
+The primary outcome was high-sensitivity C-reactive protein (hsCRP), modeled
+as its natural logarithm,
+
+\[
+Y=\ln(\mathrm{hsCRP}).
+\]
+
+The log transformation was retained from the preceding analysis of this
+cohort because raw hsCRP was strongly right-skewed and log transformation
+substantially improved regression residual behavior. For models using
+$\ln(\mathrm{hsCRP})$, coefficients may be expressed as proportional
+differences on the original hsCRP scale according to
+
+\[
+100\left(e^\beta-1\right)\%.
+\]
+
+A sensitivity analysis specified before examination of the corresponding
+Study \#2 result restricted the analytic population to participants with
+hsCRP $\leq10$ mg/L to evaluate dependence of the estimated
+sex interaction on the upper range of the hsCRP distribution.
+
+\subsection{Sex and Primary Covariates}
+
+Sex was the focal effect modifier and was coded from the NHANES sex variable
+as female (reference category) or male. The primary analysis therefore tested
+whether the adjusted HOMA-IR--hsCRP slope differed between females and males;
+sex was not included as a separate ordinary adjustment covariate outside the
+interaction term.
+
+The primary harmonized adjustment set consisted of HbA1c, waist circumference,
+continuous age, and non-HDL cholesterol. Non-HDL cholesterol was calculated as
+
+\[
+\mathrm{non\!-\!HDL}
+=
+\mathrm{total\ cholesterol}
+-
+\mathrm{HDL\ cholesterol}.
+\]
+
+Waist circumference was retained as the primary adiposity measure. Alternative
+adiposity specifications using body mass index (BMI) and waist-to-height ratio,
+as well as a model without adiposity adjustment, were evaluated as sensitivity
+analyses.
+
+\subsection{NHANES Survey Design and Weighting}
+
+All population estimates and inferential analyses incorporated the NHANES
+complex sampling design \citep{NHANES2017_2020Guidelines}. Because calculation
+of HOMA-IR required both fasting glucose and fasting insulin, analyses used the
+corresponding fasting-subsample survey weights rather than general examination
+weights.
+
+Survey variance estimation incorporated the NHANES masked variance stratum
+(\texttt{SDMVSTRA}) and masked variance unit (\texttt{SDMVPSU}) variables.
+For the combined 2015--March 2020 analysis, fasting weights were adjusted for
+the unequal durations represented by the component datasets according to
+NHANES guidance \citep{NHANES2017_2020Guidelines}. The 2015--2016 fasting
+weight was rescaled as
+
+\[
+W_{15/16}^{*}
+=
+\mathrm{WTSAF2YR}
+\left(\frac{2}{5.2}\right),
+\]
+
+and the 2017--March 2020 pre-pandemic fasting weight as
+
+\[
+W_{17/20}^{*}
+=
+\mathrm{WTSAFPRP}
+\left(\frac{3.2}{5.2}\right).
+\]
+
+Masked variance strata and variance units were uniquely identified across
+periods before the datasets were combined. The resulting combined design
+provided 40 survey design degrees of freedom. Survey-design-based variance
+estimates were used for standard errors, confidence intervals, $t$-tests,
+and $F$-tests; participants were not treated as independent
+simple-random-sample observations.
+
+Analyses were performed on the full survey design while defining the eligible
+analytic population as a survey domain. Contributions to estimating equations
+from observations outside the analytic domain were set to zero, preserving the
+design structure for domain variance estimation.
+
+\subsection{Primary Statistical Analysis}
+
+The primary analysis estimated the adjusted association between HOMA-IR and
+log-transformed hsCRP and formally tested whether that association differed
+by sex. The Study \#2 primary interaction model was
+
+\[
+\ln(\mathrm{hsCRP})
+\sim
+\mathrm{HOMA\!-\!IR}\times\mathrm{sex}
++
+\mathrm{period}\times
+(\mathrm{HbA1c}+\mathrm{waist}+\mathrm{age}+\mathrm{non\!-\!HDL}).
+\]
+
+Equivalently, the focal portion of the model may be represented as
+
+\[
+\ln(\mathrm{hsCRP}_i)
+=
+\beta_0
++\beta_1 H_i
++\beta_2 M_i
++\beta_3(H_iM_i)
++\text{period-specific adjustment terms}
++\epsilon_i,
+\]
+
+where $H_i$ denotes HOMA-IR and $M_i$ is an indicator for male sex. With
+female as the reference category, $\beta_1$ represents the adjusted female
+HOMA-IR slope and $\beta_3$ represents the male-minus-female difference in
+HOMA-IR slopes. The male slope is therefore $\beta_1+\beta_3$.
+
+The primary inferential test was the survey-adjusted Wald test of
+
+\[
+H_0:\beta_3=0.
+\]
+
+Evidence for effect modification was therefore determined from the formal
+HOMA-IR-by-sex interaction rather than by comparing whether the female and
+male sex-specific coefficients separately crossed a conventional statistical
+significance threshold. Sex-specific slopes, the male-minus-female slope
+contrast, and corresponding 95\% confidence intervals were estimated from the
+same fitted interaction model.
+
+A survey-period indicator was included, and HbA1c, waist circumference,
+continuous age, and non-HDL cholesterol were permitted to have period-specific
+coefficients through interactions with survey period. The HOMA-IR-by-sex
+association remained the common effect-modification structure of primary
+interest. This specification avoided assuming that adjustment-variable
+relationships with hsCRP were identical in the 2015--2016 and
+2017--March 2020 components.
+
+\subsection{Sensitivity Analyses}
+
+Sensitivity analyses were organized according to specific potential sources of
+inferential vulnerability and were treated as robustness analyses rather than
+alternative primary models.
+
+\paragraph{Exposure scale and upper-tail influence.}
+To assess whether the sex interaction depended on the right-skewed raw
+HOMA-IR scale or a small number of extreme exposure values, the primary model
+was repeated using natural-log-transformed HOMA-IR and after excluding
+observations above the 99th, 97.5th, and 95th percentiles of the HOMA-IR
+distribution. Residual diagnostics for the raw- and log-HOMA-IR
+specifications were also examined.
+
+\paragraph{Adiposity specification.}
+The primary waist-circumference model was compared with specifications using
+BMI, waist-to-height ratio, and no adiposity adjustment. Both available-case
+and common-complete-case analyses were used to distinguish changes associated
+with adiposity specification from those caused by differential missingness.
+
+\paragraph{Additional adjustment sensitivities.}
+Targeted sensitivity analyses evaluated additional adjustment for smoking
+status, statin use, renal function, hepatic/metabolic
+biochemistry, and alcohol-use status. Smoking was categorized as never,
+former, or current. Statin use was identified from reported prescription
+medications during the preceding 30 days using NHANES drug classifications for
+HMG-CoA reductase inhibitors. Renal sensitivity analyses used continuous
+2021 CKD-EPI creatinine-based estimated glomerular filtration rate (eGFR)
+\citep{Inker2021CKDEPI}, with log-transformed serum creatinine as a
+complementary specification. Log-transformed alanine aminotransferase (ALT) was used for the
+hepatic/metabolic sensitivity. Alcohol use was reconstructed across the two
+questionnaire structures as zero past-year exposure, very-low lifetime
+exposure, or positive past-year drinking frequency. For each sensitivity with
+missing exposure information, the reference and expanded models were compared
+within the same common sample.
+
+\paragraph{Current pregnancy.}
+Because current pregnancy represents a physiologically distinct metabolic and
+inflammatory state, the primary model was repeated after excluding participants
+with confirmed current pregnancy. A complementary analysis additionally
+excluded participants whose pregnancy status could not be determined. These
+analyses addressed current pregnancy only and were not interpreted as
+accounting for menopausal or other reproductive states.
+
+\paragraph{Upper hsCRP restriction.}
+The primary model was repeated after restriction to hsCRP $\leq10$ mg/L.
+Elevations above 10 mg/L have historically received particular attention in
+the interpretation of CRP, although such elevations need not represent acute
+inflammation and may be repeatedly observed in some individuals
+\citep{Ishii2012CRP}. This threshold had been used in the preceding analysis
+of the same cohort and was not selected from the Study \#2 interaction results.
+No alternative hsCRP thresholds were explored after observing this sensitivity
+analysis.
+
+\subsection{Descriptive Follow-up of the Upper hsCRP Range}
+
+Because restriction to hsCRP $\leq10$ mg/L materially attenuated the
+estimated HOMA-IR-by-sex interaction, a descriptive follow-up was conducted to
+characterize participants with hsCRP $>10$ mg/L. This analysis was undertaken
+to understand the sensitivity result and was not used to define new exclusion
+criteria or alternative primary models.
+
+A limited complete-blood-count panel was specified before examining its values:
+total white blood cell count, absolute neutrophil count, neutrophil percentage,
+absolute lymphocyte count, absolute monocyte count, and a derived
+neutrophil-to-lymphocyte ratio. These measures were summarized descriptively by
+sex and hsCRP group. The HOMA-IR distribution was likewise summarized within
+the four sex-by-hsCRP groups. Scatterplots of raw HOMA-IR against log-hsCRP
+were examined separately by sex using both the full HOMA-IR range and a
+HOMA-IR 0--12 display window; the latter was a visualization restriction only
+and did not exclude observations from any analysis.
+
+The descriptive CBC analysis was not used to classify participants as having
+acute infection. Similarly, the joint HOMA-IR/hsCRP patterns were interpreted
+as descriptive features of the observed distribution rather than as evidence
+of a causal biological mechanism.
+
+\subsection{Deferred Reproductive-State Analysis}
+
+Reproductive-health questionnaire variables describing recent menses,
+hysterectomy, and bilateral oophorectomy were examined as predictor-only
+quality-control work after the sex interaction had been identified. The
+available cross-sectional information did not provide a uniquely determined
+menopausal classification for all women, and no HOMA-IR--hsCRP outcome model
+was fitted using post hoc reproductive-state categories. Reproductive and
+menopausal physiology was therefore deferred as a separate future research
+question rather than added as another Study \#2 sensitivity analysis.
+
+\subsection{Software and Reproducibility}
+
+Analyses were performed in Python using NumPy, pandas, Patsy, SciPy, and
+statsmodels. Survey-weighted linear regression used Taylor-linearized
+design-based covariance estimation with NHANES strata, primary sampling units,
+fasting-subsample weights, and domain score-zeroing. The validated survey
+analysis implementation and cohort-construction framework from the preceding
+NHANES study were retained without modification for the present analysis.
+
+All sensitivity analyses were documented sequentially in an analysis log,
+including the specification of exposure definitions and analytic decisions
+before outcome-model fitting where applicable. Analyses were frozen after
+completion; additional thresholds or model variants were not selected to
+recover statistical significance.
+
+\subsection{Use of Generative Artificial Intelligence}
+
+Generative artificial intelligence (ChatGPT, OpenAI) was used as a
+research-support tool during this project, including assistance with drafting
+and revising portions of the manuscript and with writing, optimizing, and
+debugging portions of the reproducible Python analysis pipeline. The authors
+determined the research questions, analytic strategy, statistical methods,
+interpretation of results, and conclusions. AI-assisted analytical code and
+outputs were subject to human review and validation against the specified
+analytic framework, mathematical expectations, and NHANES survey-design
+constraints. All manuscript content was critically reviewed and approved by
+the authors, who take full responsibility for the accuracy, integrity,
+interpretation, and conclusions of the work.
+
+% ============================================================
+
+\section{Results}
+
+\subsection{Analytic Population}
+
+The final primary analytic sample included 3,079 adults aged 20 years or older
+without diagnosed diabetes and with HbA1c $<5.7\%$. After application of the
+combined NHANES fasting-subsample weights, this sample represented
+approximately 144.3 million U.S. adults. The complex survey design provided
+40 denominator degrees of freedom for design-based inference. Sex-stratified descriptive characteristics are shown in Table~\ref{tab:table1}.
+
+
+\begin{table}[htbp]
+\centering
+\caption{Characteristics of the primary analytic population by sex}
+\label{tab:table1}
+\begin{threeparttable}
+\begin{tabular}{lcc}
+\toprule
+Characteristic & Female ($n=1,638$) & Male ($n=1,441$) \\
+\midrule
+Weighted population, millions & 74.2 & 70.2 \\
+Age, years & 43.6 (0.6) & 42.0 (0.6) \\
+HbA1c, \% & 5.26 (0.01) & 5.25 (0.01) \\
+Waist circumference, cm & 94.4 (0.6) & 99.2 (0.6) \\
+Non-HDL cholesterol, mg/dL & 126.6 (1.4) & 135.1 (1.6) \\
+Fasting glucose, mg/dL & 97.3 (0.3) & 101.5 (0.4) \\
+Fasting insulin, $\mu$U/mL & 7.76 (5.25--12.01) & 7.86 (5.01--13.74) \\
+HOMA-IR & 1.87 (1.21--2.88) & 2.00 (1.25--3.43) \\
+hsCRP, mg/L & 1.70 (0.67--3.93) & 1.30 (0.61--2.67) \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Values are survey-weighted mean (SE) for age, HbA1c, waist circumference,
+non-HDL cholesterol, and fasting glucose, and survey-weighted median (IQR) for
+fasting insulin, HOMA-IR, and hsCRP.
+\item The analytic population included adults aged $\geq20$ years without
+diagnosed diabetes and with HbA1c $<5.7\%$, meeting the fasting-subsample and
+complete-case criteria for the primary model.
+\item Weighted population estimates use the combined NHANES 2015--2016 and
+2017--March 2020 pre-pandemic fasting-subsample weights.
+\item No hypothesis tests comparing baseline characteristics by sex were performed.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\subsection{Primary HOMA-IR-by-Sex Interaction}
+
+In the locked primary model, the adjusted association between HOMA-IR and
+log-transformed hsCRP differed by sex
+($F(1,40)=9.05$, $p=0.0045$; Table~\ref{tab:primary_sex_interaction}). The estimated HOMA-IR slope among
+females was 0.0629 (SE 0.0180; 95\% CI 0.0265 to 0.0992), whereas the
+estimated slope among males was 0.0082 (SE 0.0117; 95\% CI $-0.0156$ to
+0.0319). The male-minus-female difference in slopes was $-0.0547$
+(95\% CI $-0.0914$ to $-0.0180$).
+
+On the original hsCRP scale, these coefficients correspond descriptively to
+approximately a 6.5\% increase in hsCRP per one-unit higher HOMA-IR among
+females and a 0.8\% increase among males, conditional on the fitted model.
+Inference, however, was based on the log-hsCRP scale and on the formal
+HOMA-IR-by-sex interaction rather than on separate tests of the two
+sex-specific slopes.
+
+\begin{table}[htbp]
+\centering
+\caption{Primary survey-weighted HOMA-IR-by-sex interaction model}
+\label{tab:primary_sex_interaction}
+\begin{threeparttable}
+\begin{tabular}{lrrrr}
+\toprule
+Estimate & $\beta$ & SE & 95\% CI & $p$ \\
+\midrule
+Female HOMA-IR slope & 0.0629 & 0.0180 & 0.0265 to 0.0992 & 0.0012 \\
+Male HOMA-IR slope & 0.0082 & 0.0117 & $-0.0156$ to 0.0319 & 0.4905 \\
+Male-minus-female slope contrast & $-0.0547$ & --- & $-0.0914$ to $-0.0180$ & 0.0045 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Outcome: $\ln(\mathrm{hsCRP})$; exposure: raw continuous HOMA-IR.
+The model included HOMA-IR$\times$sex and period-specific adjustment for
+continuous HbA1c, waist circumference, age, and non-HDL cholesterol.
+Female was the reference sex. The formal interaction test for equality of the
+sex-specific HOMA-IR slopes was $F(1,40)=9.053$, $p=0.00452$.
+Inference incorporated the NHANES fasting-subsample weights, masked strata,
+and masked PSUs. Analytic $n=3,079$.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\subsection{Exposure Scale and Upper-Tail Influence}
+
+The HOMA-IR distribution was right-skewed (median 1.99; 95th percentile 6.66;
+97.5th percentile 8.44; 99th percentile 11.31; maximum 38.97). The estimated
+sex contrast persisted in the same direction after natural-log transformation
+of HOMA-IR and after progressive restriction of the upper HOMA-IR tail
+(Table~S1). In the full sample, the log-HOMA-IR interaction was
+$F(1,40)=10.88$ ($p=0.0021$). Under raw-HOMA-IR restrictions at the 99th,
+97.5th, and 95th percentiles, male-minus-female slope contrasts were
+$-0.0735$, $-0.1036$, and $-0.1001$, respectively, compared with $-0.0547$
+in the full primary sample. Residual diagnostics did not identify a
+qualitative deficiency requiring replacement of the primary raw-HOMA-IR
+specification.
+
+\subsection{Adiposity Sensitivity}
+
+Adiposity adjustment substantially attenuated the HOMA-IR--hsCRP slopes
+relative to a model without adiposity adjustment, but the estimated sex
+contrast remained in the same direction across BMI, waist circumference, and
+waist-to-height ratio specifications (Table~S2). The male-minus-female
+contrast was $-0.0955$ (95\% CI $-0.1616$ to $-0.0293$) without adiposity
+adjustment, $-0.0423$ (95\% CI $-0.0811$ to $-0.0035$) with BMI,
+$-0.0547$ (95\% CI $-0.0914$ to $-0.0180$) with the primary waist
+circumference specification, and $-0.0416$ (95\% CI $-0.0791$ to
+$-0.0041$) with waist-to-height ratio. Common-complete-case analyses
+($n=3,072$) produced nearly identical estimates, indicating that differences
+among these specifications were not attributable to differential missingness.
+
+\subsection{Additional Adjustment and Exclusion Sensitivities}
+
+Targeted adjustment for smoking, current prescription statin use, renal
+function, log-transformed ALT, and alcohol-use status produced little change
+in the estimated HOMA-IR-by-sex contrast within their respective common
+samples (Table~S3). The alcohol analysis was particularly informative about
+sample restriction: among the 2,919 participants with classifiable alcohol
+status, the reference contrast was $-0.0673$ (95\% CI $-0.1060$ to
+$-0.0287$), compared with $-0.0665$ (95\% CI $-0.1047$ to $-0.0284$)
+after alcohol adjustment. Thus, the difference between the full-cohort
+primary estimate and the alcohol-sample estimate reflected sample restriction
+rather than alcohol adjustment.
+
+Exclusion of 48 participants with confirmed current pregnancy likewise
+produced little change ($n=3,031$; male-minus-female contrast $-0.0567$;
+$F(1,40)=9.04$, $p=0.0045$). Excluding both confirmed pregnancy and the
+15 participants whose pregnancy status could not be determined produced a
+nearly identical contrast ($-0.0567$; $n=3,016$).
+
+\subsection{Sensitivity to the Upper hsCRP Range}
+
+Restriction to participants with hsCRP $\leq10$ mg/L materially attenuated
+the estimated sex difference. In the full primary sample, the
+male-minus-female HOMA-IR slope contrast was $-0.0547$ (95\% CI $-0.0914$
+to $-0.0180$). Among the 2,895 participants with hsCRP $\leq10$ mg/L, the
+female slope decreased from 0.0629 to 0.0438, whereas the male slope increased
+from 0.0082 to 0.0168. The resulting male-minus-female contrast was
+$-0.0269$ (95\% CI $-0.0572$ to 0.0033), with
+$F(1,40)=3.24$ ($p=0.0796$).
+
+Thus, restriction to hsCRP $\leq10$ mg/L reduced the absolute magnitude of
+the interaction contrast by approximately 50.8\%. The attenuation therefore
+reflected convergence of both sex-specific slopes rather than only a change
+in whether the interaction crossed a conventional statistical-significance
+threshold.
+
+\subsection{Descriptive Characterization of hsCRP $>10$ mg/L}
+
+Of the 184 participants with hsCRP $>10$ mg/L, 128 were female and 56 were
+male, corresponding to unweighted proportions of 7.81\% and 3.89\% within
+the female and male analytic samples, respectively. Complete-blood-count
+measures were available for all 184 participants.
+
+In both sexes, the hsCRP $>10$ mg/L group showed descriptively higher WBC,
+absolute neutrophil count, neutrophil percentage, and
+neutrophil-to-lymphocyte ratio than the hsCRP $\leq10$ mg/L group
+(Table~S4). The HOMA-IR distribution showed a more pronounced shift among
+females: median HOMA-IR was 3.01 versus 1.91 for hsCRP $>10$ versus
+$\leq10$ mg/L, with corresponding 90th percentiles of 7.40 and 4.51.
+Among males, median HOMA-IR was similar between hsCRP groups (2.04 versus
+2.05), although the upper distribution extended farther among those with
+hsCRP $>10$ mg/L (90th percentile 6.77 versus 5.13).
+
+Sex-stratified scatterplots were consistent with these descriptive summaries:
+female observations with hsCRP $>10$ mg/L extended farther into the
+higher-HOMA-IR portion of the joint distribution, whereas numerous male
+observations with higher HOMA-IR remained below the 10 mg/L hsCRP threshold.
+These descriptive analyses were not used to classify acute infection or to
+define additional exclusions.
+
+
+% ============================================================
+
+\section{Discussion}
+
+In this nationally representative sample of U.S. adults without diagnosed
+diabetes and with HbA1c below the conventional threshold for prediabetes,
+the adjusted association between HOMA-IR and hsCRP differed by sex. The
+association was more positive among women than men, with a male-minus-female
+difference in HOMA-IR slope of $-0.0547$ (95\% CI, $-0.0914$ to $-0.0180$).
+This contrast persisted across alternative HOMA-IR scales, progressively
+trimmed exposure distributions, alternative representations of adiposity,
+and multiple targeted clinical and behavioral sensitivity analyses. The
+principal qualification was the restriction to hsCRP $\leq10$ mg/L, which
+reduced the estimated sex contrast by approximately 51\%. Thus, the findings
+support sex-related heterogeneity in the relationship between fasting
+insulin resistance and systemic inflammation in this metabolically selected
+population, while indicating that the magnitude of this heterogeneity is
+substantially influenced by the upper range of the hsCRP distribution.
+
+The observed sex difference is biologically plausible in the context of
+established sexual dimorphism in metabolic and immune physiology. Sex
+differences have been described in insulin sensitivity and resistance, with
+potential contributions from body-fat distribution and function,
+inflammatory biology, and sex hormones \citep{Gado2024SexIR}. Immune
+responses likewise differ by sex across both innate and adaptive pathways
+and vary across the life course and reproductive state
+\citep{KleinFlanagan2016SexImmune}. At the population level, women have been
+reported to have higher CRP concentrations than men even after accounting
+for several relevant covariates \citep{Lakoski2006GenderCRP}, and the
+association between total fat mass and log-transformed CRP has been reported
+to be steeper among women than men \citep{Khera2009SexCRPBodyFat}. These
+observations provide biological and epidemiologic context for the present
+finding, but they do not establish the mechanism underlying the sex
+difference in HOMA-IR--hsCRP coupling observed here.
+
+Adiposity appears to be an important component of this relationship. Adipose
+tissue is metabolically and immunologically active, with adipose-derived
+signals contributing to both insulin sensitivity and systemic inflammatory
+biology \citep{Ouchi2011Adipokines}. In the present analysis, omission of
+adiposity adjustment substantially increased both sex-specific HOMA-IR
+slopes and the estimated sex contrast, whereas adjustment using BMI, waist
+circumference, or waist-to-height ratio attenuated the contrast but did not
+eliminate it. This pattern is consistent with adiposity accounting
+statistically for a meaningful portion of the observed HOMA-IR--hsCRP
+relationship, while the persistence of the sex contrast across several
+anthropometric specifications suggests that the finding is not attributable
+to any single representation of adiposity. Prior population-based work has
+similarly reported a steeper association between total fat mass and CRP
+among women than men \citep{Khera2009SexCRPBodyFat}. Because anthropometric
+measures are imperfect proxies for body composition and fat distribution,
+however, these analyses should not be interpreted as demonstrating an
+association independent of adipose biology.
+
+The estimated sex contrast was also largely unchanged across several
+targeted sensitivity analyses addressing smoking, statin use, renal
+function, hepatic status, alcohol use, and pregnancy. These factors were
+evaluated because each could plausibly influence metabolic or inflammatory
+measurements or their interpretation. Their inclusion or exclusion produced
+little change in the estimated HOMA-IR--hsCRP sex interaction. These analyses
+therefore reduce concern that the primary finding is readily explained by
+any one of these measured factors, but they do not eliminate residual
+confounding or establish that these factors are biologically irrelevant to
+the observed association. For alcohol, comparison with a reference model
+fitted to the same classifiable sample further indicated that the apparent
+difference from the full-cohort estimate reflected sample restriction rather
+than alcohol adjustment itself.
+
+The most important qualification to the primary finding emerged when the
+analysis was restricted to participants with hsCRP $\leq10$ mg/L. The
+estimated sex contrast was attenuated by approximately 51\%, from $-0.0547$
+in the full analytic population to $-0.0269$ after restriction, and the
+confidence interval for the restricted estimate included zero. The
+10-mg/L threshold has commonly been used in epidemiologic studies to reduce
+the potential influence of acute inflammatory states when CRP is used as a
+marker of chronic low-grade inflammation. However, values above this
+threshold cannot be assumed to represent acute infection. Repeated-measure
+studies have demonstrated that CRP concentrations above 10 mg/L may persist,
+particularly among women and individuals with obesity, suggesting that
+exclusion of all such observations can also remove participants with
+sustained inflammatory phenotypes \citep{Ishii2012CRP}. Accordingly, the
+attenuation observed here should not be interpreted simply as elimination
+of acute inflammatory outliers. Rather, it indicates that the estimated sex
+difference in HOMA-IR--hsCRP coupling is substantially influenced by
+participants in the upper range of the hsCRP distribution.
+
+Descriptive evaluation of participants with hsCRP $>10$ mg/L provided
+additional context for this sensitivity. In both sexes, participants in the
+upper hsCRP range had higher typical leukocyte counts, absolute neutrophil
+counts, neutrophil percentages, and neutrophil-to-lymphocyte ratios than
+participants with hsCRP $\leq10$ mg/L, consistent with greater inflammatory
+or immune activation at the group level. The distribution of HOMA-IR,
+however, differed more distinctly among women: median HOMA-IR was
+substantially higher among women with hsCRP $>10$ mg/L than among women
+below the threshold, whereas the corresponding male medians were nearly
+identical. This pattern helps explain the geometry of the sensitivity
+result: observations in the upper inflammatory range among women were also
+shifted toward higher HOMA-IR, while the analogous male observations showed
+less evidence of a comparable metabolic shift. These descriptive findings
+do not establish a biological mechanism, but they indicate that the
+attenuation after hsCRP restriction reflects structure in the joint
+HOMA-IR--hsCRP distribution rather than merely the removal of a small number
+of arbitrarily defined extreme observations.
+
+Reproductive physiology represents an important potential direction for
+subsequent investigation. Sex differences in insulin sensitivity vary
+across the life course, and the relative metabolic advantage observed among
+women before menopause appears to diminish after the menopausal transition;
+sex hormones, adipose distribution, and inflammatory signaling have all
+been proposed as contributing mechanisms
+\citep{Gado2024SexIR,Henstridge2019MetabolicControlSex}. However,
+reproductive state could not be classified reliably from age or recent
+menstruation alone in the present NHANES sample. Hysterectomy, bilateral
+oophorectomy, natural menopause, and exogenous hormone use represent
+physiologically distinct states that would require explicit phenotype
+definitions and separate consideration. We therefore did not perform post
+hoc outcome modeling by menopausal or reproductive category. Whether the
+observed sex difference in HOMA-IR--hsCRP coupling varies across reproductive
+states remains an important question for future study.
+
+Several limitations should be considered when interpreting these findings.
+First, the cross-sectional design precludes determination of temporal or
+causal direction between insulin resistance and systemic inflammation.
+Second, HOMA-IR is a surrogate derived from fasting glucose and insulin
+rather than a direct measure of insulin sensitivity such as the
+hyperinsulinemic-euglycemic clamp
+\citep{Matthews1985HOMA,Wallace2004HOMA}. This distinction may be
+particularly relevant to the present study because relationships between
+fasting glucose--insulin indices and clamp-measured insulin sensitivity can
+vary by sex and other population characteristics
+\citep{Pisprasert2013SurrogateIndices}. Accordingly, a one-unit difference
+in HOMA-IR should not necessarily be assumed to represent an identical
+physiological difference in insulin sensitivity in women and men. Third,
+hsCRP is a nonspecific marker of systemic inflammation and does not identify
+the source or chronicity of the inflammatory process
+\citep{PepysHirschfield2003CRP}. Because hsCRP was measured at a single
+examination, transient and persistent elevations could not be distinguished.
+This limitation is particularly relevant given the substantial attenuation
+of the estimated sex contrast after restriction to hsCRP $\leq10$ mg/L.
+
+Selection and residual confounding also warrant consideration. The analytic
+population was deliberately restricted to adults without diagnosed diabetes
+and with HbA1c below the conventional prediabetes threshold, and the findings
+therefore should not be assumed to generalize to individuals with
+prediabetes or diabetes or to populations outside the NHANES target
+population. Analyses additionally depended on participation in the fasting
+laboratory subsample and complete availability of primary-model variables.
+Appropriate fasting-subsample survey weights were used to support population
+inference, and only 103 of 3,182 otherwise eligible participants were
+excluded for incomplete primary-model covariates; nevertheless, selection
+related to measurement availability or complete-case inclusion cannot be
+excluded. Residual confounding also remains possible despite adjustment for
+major metabolic covariates and the targeted sensitivity analyses. Race and
+ethnicity, socioeconomic circumstances, physical activity, diet,
+reproductive and hormonal factors, additional medication use, and more
+detailed measures of body composition are among factors not comprehensively
+represented in the primary model. Their omission should not be interpreted
+as evidence that they are unimportant, but indiscriminate post hoc
+adjustment for additional variables would not necessarily reduce bias and
+could complicate interpretation.
+
+The present analysis should also be viewed as a focused follow-up to an
+exploratory observation from an earlier analysis of the same NHANES
+population rather than as an independent replication. Sex-related
+heterogeneity was identified during methodological evaluation of the
+preceding study and motivated the specific HOMA-IR-by-sex interaction
+evaluated here. The present study subsequently defined that interaction as
+its primary question and subjected it to structured sensitivity analyses;
+however, because the hypothesis was generated and evaluated using
+overlapping data, the primary interaction estimate should not be interpreted
+as independent confirmation of the original exploratory signal. Replication
+in an independent population will therefore be important.
+
+The study also has several strengths. The analytic population was
+deliberately defined to examine metabolic--inflammatory heterogeneity among
+adults who had not crossed conventional glycemic thresholds for prediabetes
+or diagnosed diabetes. Sex differences were evaluated using a formal
+interaction test rather than inferred from comparisons of statistical
+significance within sex-specific subgroups. Analyses incorporated the
+complex NHANES sampling design, fasting-subsample weights, and domain-based
+variance estimation to support population-level inference. The primary
+interaction was further evaluated across a structured series of sensitivity
+analyses addressing exposure scale and influence, alternative
+representations of adiposity, several clinical and behavioral factors,
+pregnancy, and the upper range of the hsCRP distribution. Where sensitivity
+analyses altered the available analytic sample, same-sample reference models
+were used to distinguish changes associated with covariate adjustment from
+those associated with sample restriction. Finally, sensitivity findings
+were evaluated on the basis of changes in effect estimates and uncertainty
+rather than solely according to whether a nominal threshold for statistical
+significance was crossed.
+
+In conclusion, among U.S. adults without diagnosed diabetes and with HbA1c
+below the conventional threshold for prediabetes, the adjusted association
+between HOMA-IR and hsCRP was more positive among women than men. This sex
+difference persisted across alternative HOMA-IR scales, progressively
+trimmed exposure distributions, multiple representations of adiposity, and
+a range of targeted clinical and behavioral sensitivity analyses. However,
+restriction to hsCRP $\leq10$ mg/L reduced the estimated sex contrast by
+approximately one-half, indicating that the upper portion of the
+inflammatory distribution contributes importantly to the observed
+heterogeneity. Taken together, these findings suggest that sex-related
+differences in metabolic--inflammatory coupling may be detectable even
+below conventional glycemic thresholds, while also demonstrating that the
+magnitude of this difference depends substantially on the inflammatory
+range under study. Independent replication and studies incorporating more
+direct measures of insulin sensitivity, repeated inflammatory measurements,
+body composition, and reproductive physiology will be important for
+determining the biological basis and clinical relevance of this pattern.
+
+% ============================================================
+
+\section*{Author Contributions}
+
+S.M. conceived the study, developed the analytic framework, conducted
+the statistical analyses, interpreted the results, and drafted the
+manuscript. J.B. contributed to study development, interpretation of
+the findings, and critical revision of the manuscript. Both authors
+reviewed and approved the final manuscript.
+
+\section*{Funding}
+
+This research received no external funding.
+
+\section*{Conflicts of Interest}
+
+The authors declare no conflicts of interest.
+
+\section*{Ethics Statement}
+
+This study used publicly available, de-identified data from the National
+Health and Nutrition Examination Survey (NHANES). NHANES protocols were
+approved by the National Center for Health Statistics Research Ethics Review
+Board, and written informed consent was obtained from participants in
+accordance with NHANES procedures. Because the present study involved
+secondary analysis of publicly available, de-identified data, no additional
+institutional review board approval or informed consent was required.
+
+\section*{Data Availability}
+
+The NHANES data used in this study are publicly available from the National
+Center for Health Statistics.
+
+% ============================================================
+% References
+% ============================================================
+
+\bibliographystyle{plainnat}
+\bibliography{manuscript_references}
+
+\end{document}

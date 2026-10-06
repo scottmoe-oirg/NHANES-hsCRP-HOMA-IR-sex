@@ -1,0 +1,167 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.8in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{pdflscape}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{threeparttable}
+\usepackage{caption}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage[hidelinks]{hyperref}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.6em}
+\renewcommand{\thetable}{S\arabic{table}}
+
+\begin{document}
+
+\begin{center}
+{\Large\bfseries Supplementary Material}\\[0.5em]
+{\large Sex Differences in the Association Between Insulin Resistance and Systemic Inflammation}\\
+{\large Below the HbA1c Prediabetes Threshold}\\[0.5em]
+Scott Moerschbacher; Janice Baker
+\end{center}
+
+\setcounter{table}{0}
+
+% Supplementary statistical tables for Study #2.
+% These tables use frozen analysis results and do not introduce new models.
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity of the HOMA-IR-by-sex interaction to exposure scale and upper-tail restriction}
+\label{tab:s1_scale_tail}
+\begin{threeparttable}
+\small
+\begin{tabular}{llrrrrr}
+\toprule
+HOMA scale & Analytic restriction & $n$ & Female slope & Male slope &
+Male--female & Interaction $p$ \\
+\midrule
+Raw & Full sample & 3079 & 0.0629 & 0.0082 & $-0.0547$ & 0.00452 \\
+Log & Full sample & 3079 & 0.2389 & 0.0166 & $-0.2223$ & 0.00205 \\
+Raw & Below 99th percentile & 3048 & 0.0954 & 0.0219 & $-0.0735$ & 0.01334 \\
+Log & Below 99th percentile & 3048 & 0.2440 & 0.0189 & $-0.2251$ & 0.00450 \\
+Raw & Below 97.5th percentile & 3002 & 0.1188 & 0.0153 & $-0.1036$ & 0.00163 \\
+Log & Below 97.5th percentile & 3002 & 0.2612 & 0.0003 & $-0.2609$ & 0.00135 \\
+Raw & Below 95th percentile & 2925 & 0.1210 & 0.0209 & $-0.1001$ & 0.00946 \\
+Log & Below 95th percentile & 2925 & 0.2432 & 0.0002 & $-0.2430$ & 0.00484 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item The log-HOMA coefficients are on a different exposure scale from the raw-HOMA
+coefficients and should not be compared numerically as if they estimated the same
+one-unit exposure contrast. All models retained $\ln(\mathrm{hsCRP})$ as the outcome
+and the primary period-specific adjustment structure.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Sensitivity of the HOMA-IR-by-sex interaction to adiposity specification}
+\label{tab:s2_adiposity}
+\begin{threeparttable}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Adiposity specification & $n$ & Female & Male &
+Contrast & 95\% CI \\
+\midrule
+No adiposity adjustment & 3079 & 0.1892 & 0.0938 & $-0.0955$ & $-0.1616$ to $-0.0293$ \\
+BMI & 3072 & 0.0606 & 0.0183 & $-0.0423$ & $-0.0811$ to $-0.0035$ \\
+Waist circumference (primary) & 3079 & 0.0629 & 0.0082 & $-0.0547$ & $-0.0914$ to $-0.0180$ \\
+Waist-to-height ratio & 3074 & 0.0522 & 0.0106 & $-0.0416$ & $-0.0791$ to $-0.0041$ \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item Female and male columns report the estimated HOMA-IR slopes within
+each sex; contrast is the male-minus-female slope difference.
+Common-complete-case analyses among $n=3,072$ participants produced nearly
+identical estimates, indicating that differences among adiposity specifications
+were not attributable to differential missingness. These models are sensitivity
+analyses of adjustment specification and are not mediation analyses.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{landscape}
+\begin{longtable}{p{2.0in}rrrrrr}
+\caption{Targeted clinical adjustment and exclusion sensitivities}
+\label{tab:s3_targeted}\\
+\toprule
+Model & $n$ & Female slope & Male slope & Male--female & $F$ & $p$ \\
+\midrule
+\endfirsthead
+\toprule
+Model & $n$ & Female slope & Male slope & Male--female & $F$ & $p$ \\
+\midrule
+\endhead
+Smoking common-sample reference & 3075 & 0.0628 & 0.0081 & $-0.0548$ & 9.0765 & 0.00448 \\
++ smoking status & 3075 & 0.0632 & 0.0099 & $-0.0534$ & 8.6687 & 0.00537 \\
+\addlinespace
+Statin common-sample reference & 3041 & 0.0628 & 0.0080 & $-0.0548$ & 9.2612 & 0.00412 \\
++ statin use & 3041 & 0.0630 & 0.0081 & $-0.0548$ & 9.3704 & 0.00393 \\
+\addlinespace
+Renal common-sample reference & 3075 & 0.0625 & 0.0074 & $-0.0551$ & 8.9139 & 0.00481 \\
++ continuous eGFR & 3075 & 0.0623 & 0.0070 & $-0.0553$ & 9.0634 & 0.00450 \\
++ log creatinine & 3075 & 0.0623 & 0.0071 & $-0.0552$ & 9.0497 & 0.00453 \\
+\addlinespace
+ALT common-sample reference & 3074 & 0.0625 & 0.0075 & $-0.0551$ & 8.9101 & 0.00482 \\
++ log ALT & 3074 & 0.0633 & 0.0084 & $-0.0549$ & 8.8098 & 0.00504 \\
+\addlinespace
+Alcohol common-sample reference & 2919 & 0.0757 & 0.0084 & $-0.0673$ & 12.3816 & 0.00110 \\
++ alcohol-use category & 2919 & 0.0750 & 0.0085 & $-0.0665$ & 12.4028 & 0.00109 \\
+\addlinespace
+Exclude confirmed pregnancy & 3031 & 0.0666 & 0.0099 & $-0.0567$ & 9.0445 & 0.00454 \\
+Exclude pregnancy + cannot determine & 3016 & 0.0668 & 0.0101 & $-0.0567$ & 8.9438 & 0.00475 \\
+\bottomrule
+\multicolumn{7}{p{8.4in}}{\footnotesize
+Each added-covariate model should be compared with its reference model fitted
+to the same participants. This is especially important for alcohol, for which
+the common-sample reference contrast differs from the full-cohort primary
+contrast because of sample restriction. eGFR used the 2021 CKD-EPI
+creatinine equation. ALT and creatinine were natural-log transformed.}\\
+\end{longtable}
+\end{landscape}
+
+\begin{table}[htbp]
+\centering
+\caption{Descriptive characterization by sex and hsCRP group}
+\label{tab:s4_hscrp_descriptive}
+\begin{threeparttable}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Measure & Statistic & Female $\leq10$ & Female $>10$ & Male $\leq10$ & Male $>10$ \\
+\midrule
+Unweighted $n$ & --- & 1510 & 128 & 1385 & 56 \\
+HOMA-IR & Median & 1.91 & 3.01 & 2.05 & 2.04 \\
+ & 75th percentile & 2.87 & 4.67 & 3.35 & 4.13 \\
+ & 90th percentile & 4.51 & 7.40 & 5.13 & 6.77 \\
+WBC ($10^3$ cells/$\mu$L) & Median & 6.2 & 7.5 & 6.3 & 7.2 \\
+Absolute neutrophils ($10^3$ cells/$\mu$L) & Median & 3.5 & 4.45 & 3.5 & 4.5 \\
+Neutrophils (\%) & Median & 57.4 & 60.0 & 56.6 & 61.4 \\
+Absolute lymphocytes ($10^3$ cells/$\mu$L) & Median & 1.9 & 2.1 & 1.9 & 1.75 \\
+Absolute monocytes ($10^3$ cells/$\mu$L) & Median & 0.5 & 0.5 & 0.5 & 0.7 \\
+NLR & Median & 1.82 & 2.13 & 1.84 & 2.39 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}[flushleft]
+\footnotesize
+\item hsCRP is expressed in mg/L. CBC measures were available for all 184
+participants with hsCRP $>10$ mg/L. Values are descriptive and were not used
+to diagnose acute infection, assign an inflammatory etiology, or define
+additional exclusions. WBC = white blood cell count; NLR =
+neutrophil-to-lymphocyte ratio.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\end{document}
