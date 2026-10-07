@@ -244,8 +244,10 @@ Department of Sociology, University of Nevada, Reno
 
 ## Citation
 
-Citation information and the permanent Zenodo DOI will be added when the
-public repository release is archived.
+Version 1.0.0 of this computational repository is permanently archived on
+Zenodo:
+
+https://doi.org/10.5281/zenodo.23200490
 
 ## License
 
